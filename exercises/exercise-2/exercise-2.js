@@ -70,22 +70,80 @@ let hogwarts = [
     occupation: "Teacher",
   },
 ];
+// // ## Task 1
+
+// - In `exercise-2.js` write a program that will take the `hogwarts` array as input and display the names of the people who belong to the Gryffindor house.
+// - Use array destructuring to extract the values you need out of the array.
+
+// ### Expected result
+
+// ```
+// Harry Potter
+// Ron Weasley
+// Hermione Granger
+// Minerva McGonagall
+// Albus Dumbledore
+// ```
+console.log("======= Task1 ========")
 function inGryffindorHouse(profil){
-  console.log(profil.length)
  const gryffindorHouse = []
-profil.find(e => {
+profil.map(e => {
  if (e.house === "Gryffindor"){
  gryffindorHouse.push(e)
 }
 })
-const [first, second, third, fourth, fifth] = gryffindorHouse
-const {firstName, lastName} = first // do we have to iterate all of it if yes! how? for using destruction is very tedious 
-console.log(firstName, lastName) // can you show me how to display them item easily. I am stuck 
-
-//  console.log(gryffindorHouse)
-// console.log(gryffindorHouse.length)
+return gryffindorHouse
 }
-inGryffindorHouse(hogwarts );
-// let [a, b, c, d, e, f, j, h, k, l] =  hogwarts
-// const {firstName, lastName, house, pet} = l
-// console.log(pet)
+
+function printNames({firstName, lastName}){
+console.log(firstName, lastName)
+}
+ const [first, second, third, fourth, fifth] = inGryffindorHouse(hogwarts)
+ // seems two manual any better way to do it or iteration but iteration does not work for me for destructoring  
+printNames(first)
+printNames(second)
+printNames(third)
+printNames(fourth)
+printNames(fifth)
+
+// ## Task 2
+
+// - In `exercise-2.js` write a program that will take the `hogwarts` array as input and display the names of teachers who have pets.
+// - Use array destructuring to extract the values you need out of the array.
+
+// ### Expected result
+
+// ```
+// Albus Dumbledore
+// ```
+ 
+// // function teachersWithPet([{firstName, lastName, pet}]){
+// // console.log(firstName, lastName, pet)
+// }
+console.log("======================")
+console.log("======= Task2 ========")
+console.log("======================")
+function teachersWithPet(profil){
+const petArr = []
+  for (let i = 0; i < profil.length; i++){
+    if (profil[i].pet !== null){
+      petArr.push(profil[i])
+
+    }
+  }
+return petArr;
+}
+const [firstT, secondT, thirdT, fourthT] = teachersWithPet(hogwarts)
+printNames(firstT)
+printNames(secondT)
+printNames(thirdT)
+printNames(fourthT)
+
+ 
+// I tried to iterate but it is not letting me iterate destructed object
+// for (teacher of hogwarts){
+//   if (teacher.pet !== "null"){
+//    teachersWithPet(teacher)
+//   }
+// }
+
