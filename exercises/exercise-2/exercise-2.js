@@ -94,17 +94,10 @@ profil.map(e => {
 })
 return gryffindorHouse
 }
-
-function printNames({firstName, lastName}){
-console.log(firstName, lastName)
-}
- const [first, second, third, fourth, fifth] = inGryffindorHouse(hogwarts)
- // seems two manual any better way to do it or iteration but iteration does not work for me for destructoring  
-printNames(first)
-printNames(second)
-printNames(third)
-printNames(fourth)
-printNames(fifth)
+ const inGryffindorArray = inGryffindorHouse(hogwarts)  //I was trying the destructuring technic not nesting I will send you this code a let me know 
+ inGryffindorArray.map(e => {const {firstName, lastName} = e // This what I wanted for the destruturing I think it is most better than the previous
+  console.log(firstName, lastName)                          // let me know in slack or getHub
+})
 
 // ## Task 2
 
@@ -117,9 +110,7 @@ printNames(fifth)
 // Albus Dumbledore
 // ```
  
-// // function teachersWithPet([{firstName, lastName, pet}]){
-// // console.log(firstName, lastName, pet)
-// }
+
 console.log("======================")
 console.log("======= Task2 ========")
 console.log("======================")
@@ -133,17 +124,12 @@ const petArr = []
   }
 return petArr;
 }
-const [firstT, secondT, thirdT, fourthT] = teachersWithPet(hogwarts)
-printNames(firstT)
-printNames(secondT)
-printNames(thirdT)
-printNames(fourthT)
+const teachersWithPetArray = teachersWithPet(hogwarts)
+teachersWithPetArray.map(e => {const {firstName, lastName, pet} = e // This what I wanted for the destruturing I think it is most better than the previous
+  console.log(firstName, lastName, pet)                               // let me know in slack or getHub
+})
+
 
  
-// I tried to iterate but it is not letting me iterate destructed object
-// for (teacher of hogwarts){
-//   if (teacher.pet !== "null"){
-//    teachersWithPet(teacher)
-//   }
-// }
+
 
